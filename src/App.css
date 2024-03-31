@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.global-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 5px;
+ 
+}
+
+.left-sidebar{
+  width: 20%;
+  background-color: #f9f9f9;
+}
+
+.right-sidebar{
+  width: 80%;
+}
+.music-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+}
+.musicCard{
+  height: 200px;
+  width: 200px;
+  margin-top: 20px;
+  padding:5px;
+  border-radius: 5px;
+}
+.artist{
+  font-size: 14px;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.music-title{
+  font: size 16px; ;
+}
+.nav-tem{
+  list-style: none;
+}
+a{
+  color: black;
+}
+a:hover{
+  background-color: #d60017;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.left-nav{
+  margin-right: 95px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fa-solid{
+  color: #d60017;
+  font: 15px;
+
+}
+.icon-music{
+ padding: 12px;
+ font-weight: 700; 
+}
+.container{
+  margin-top: 30px;
+}
+.btn-primary{
+  background-color: #d60017;
+  border-color: #d60017;
+}
+
+.music-player{
+  bottom: 0;
+  position: fixed;
+  width:100%;
+  height: 5rem;
+  background-color: #d60017;
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 5px;
+  padding-left:  10px; ;
+}
+.fa-trash{
+  cursor: pointer;
+  padding: 5px;
 }

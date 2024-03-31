@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Routes, Route ,Navigate} from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Library from './pages/Library';
+import Navbar from './component/Navbar';
+import { useUser } from './providers/UserProvider';
 
 function App() {
+
+  const {getToken} =useUser();
+
+  function ProtectedRoute({ children }) {
+    if(getToken){
+      return children;
+    }else{
+      return<Navigate to='/login'/>
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
+          <Route path='library' element={
+            <ProtectedRoute>
+              <Library />
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
